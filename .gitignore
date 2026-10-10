@@ -137,3 +137,5 @@ frontend/.cache/
 !backend/data/products.json
 !backend/data/users.json
 !backend/data/carts.json
+
+client/uploads/
