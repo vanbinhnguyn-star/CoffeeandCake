@@ -1,0 +1,220 @@
+/* ============================================================
+   Google Fonts
+   ============================================================ */
+@import url('https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&display=swap');
+
+/* ============================================================
+   CSS Variables — mau theme ca phe
+   ============================================================ */
+:root {
+  --coffee-dark:   #3e2723;
+  --coffee-brown:  #6d4c41;
+  --coffee-light:  #8d6242;
+  --coffee-bg:     #f9f6f0;
+  --coffee-gold:   #d7a86e;
+  --font-heading:  'Be Vietnam Pro', sans-serif;
+  --font-body:     'Be Vietnam Pro', sans-serif;
+}
+
+/* ============================================================
+   Base
+   ============================================================ */
+body {
+  font-family: var(--font-body);
+  background-color: var(--coffee-bg);
+  color: var(--coffee-dark);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ============================================================
+   Headings — Playfair Display
+   ============================================================ */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+}
+.text-white h1, .text-white h2, .text-white h3,
+.text-white h4, .text-white h5, .text-white h6 {
+  color: white !important;
+}
+
+/* ============================================================
+   Mau nau ca phe — Bootstrap khong co
+   ============================================================ */
+.btn-brown {
+  background-color: var(--coffee-brown);
+  border-color: var(--coffee-brown);
+  color: white;
+}
+.btn-brown:hover, .btn-brown:focus {
+  background-color: var(--coffee-light);
+  border-color: var(--coffee-light);
+  color: white;
+}
+.btn-brown:disabled { opacity: 0.7; cursor: not-allowed; }
+
+.text-brown  { color: var(--coffee-brown) !important; }
+.text-gold   { color: var(--coffee-gold)  !important; }
+.bg-brown    { background-color: var(--coffee-brown) !important; }
+.bg-coffee   { background-color: var(--coffee-bg)    !important; }
+.badge-gold  { background-color: var(--coffee-gold); color: var(--coffee-dark); }
+
+/* ============================================================
+   Navbar brand
+   ============================================================ */
+.navbar-brand {
+  font-family: var(--font-heading);
+  letter-spacing: 0.5px;
+}
+
+/* ============================================================
+   Mega menu
+   ============================================================ */
+.dropdown-container { position: relative; }
+.mega-menu {
+  pointer-events: none;
+  position: absolute;
+  top: 100%; left: 0;
+  width: 420px;
+  margin-top: 4px;
+  padding: 22px 20px;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 14px 28px rgba(0,0,0,0.12);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(14px);
+  transition: opacity 180ms ease, transform 180ms ease, visibility 180ms ease;
+  z-index: 1000;
+}
+.dropdown-container:hover .mega-menu,
+.dropdown-container:focus-within .mega-menu {
+  pointer-events: auto;
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+.mega-menu-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 22px;
+}
+.mega-menu-column h6 { font-weight: 700; color: var(--coffee-dark); margin-bottom: 12px; }
+.dropdown-link {
+  display: block;
+  margin-bottom: 10px;
+  color: var(--coffee-dark);
+  font-size: 0.93rem;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.dropdown-link:hover { color: var(--coffee-brown); }
+
+@media (max-width: 991.98px) {
+  .mega-menu {
+    position: static;
+    width: 100%;
+    opacity: 1; visibility: visible;
+    transform: none; pointer-events: auto;
+    box-shadow: none; border-radius: 0;
+    background: #f8f9fa; margin-top: 0;
+  }
+  .mega-menu-grid { grid-template-columns: 1fr; gap: 15px; }
+}
+
+/* ============================================================
+   Chat widget
+   ============================================================ */
+.chat-launcher {
+  position: fixed;
+  bottom: 24px; right: 24px;
+  width: 56px; height: 56px;
+  background: var(--coffee-brown);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.2);
+  z-index: 999;
+  transition: transform 0.2s;
+}
+.chat-launcher:hover { transform: scale(1.1); }
+
+/* ============================================================
+   Hero video nen
+   ============================================================ */
+.hero-section {
+  position: relative;
+  overflow: hidden;
+  min-height: 75vh;
+  display: flex;
+  align-items: center;
+}
+.hero-section video {
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%; height: 100%;
+  object-fit: cover;
+}
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.5);
+}
+
+/* ============================================================
+   Scrollbar
+   ============================================================ */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: #f0ebe6; }
+::-webkit-scrollbar-thumb { background: var(--coffee-gold); border-radius: 3px; }
+
+/* ============================================================
+   Link mac dinh
+   ============================================================ */
+a { text-decoration: none; color: inherit; }
+
+/* ============================================================
+   Hiệu ứng card sản phẩm
+   ============================================================ */
+
+/* Hover: nổi lên + đổ bóng đậm hơn */
+.card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  overflow: visible !important;
+}
+.card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 16px 40px rgba(62, 39, 35, 0.18) !important;
+}
+
+/* Ảnh trong card: zoom nhẹ khi hover, dùng wrapper để clip */
+.card .card-img-top {
+  transition: transform 0.4s ease;
+  border-radius: 12px 12px 0 0;
+  overflow: hidden;
+}
+.card:hover .card-img-top {
+  transform: scale(1.05);
+}
+
+/* ============================================================
+   Hiệu ứng fade-in khi scroll vào màn hình
+   ============================================================ */
+.fade-in {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Delay cho từng card trong grid */
+.fade-in:nth-child(2) { transition-delay: 0.1s; }
+.fade-in:nth-child(3) { transition-delay: 0.2s; }
+.fade-in:nth-child(4) { transition-delay: 0.3s; }
+.fade-in:nth-child(5) { transition-delay: 0.4s; }
+.fade-in:nth-child(6) { transition-delay: 0.5s; }
